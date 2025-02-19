@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>form_capacitacao.html</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #bcbec4;}
+.s1 { color: #bcbec4;}
+.s2 { color: #d5b778;}
+.s3 { color: #6aab73;}
+.s4 { color: #bcbec4;}
+.s5 { color: #d5b778;}
+.s6 { color: #bababa;}
+.s7 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+form_capacitacao.html</font>
+</center></td></tr></table>
+<pre><span class="s0">{% </span><span class="s2">extends </span><span class="s3">'base.html' </span><span class="s0">%}</span>
+<span class="s0">{% </span><span class="s2">block </span><span class="s0">content %}</span>
+  <span class="s5">&lt;div </span><span class="s6">class</span><span class="s7">=&quot;container&quot;</span><span class="s5">&gt;</span>
+      <span class="s5">&lt;div </span><span class="s6">class</span><span class="s7">=&quot;page-header&quot;</span><span class="s5">&gt;</span>
+         <span class="s5">&lt;h1&gt;Cadastrar Capacitação&lt;/h1&gt;</span>
+      <span class="s5">&lt;/div&gt;</span>
+      <span class="s5">&lt;form </span><span class="s6">method</span><span class="s7">=&quot;POST&quot; </span><span class="s6">action</span><span class="s7">=&quot;{{ url_for('criar_capacitacao') }}&quot;</span><span class="s5">&gt;</span>
+          <span class="s5">&lt;div </span><span class="s6">class</span><span class="s7">=&quot;form-group&quot;</span><span class="s5">&gt;</span>
+              <span class="s5">&lt;label </span><span class="s6">for</span><span class="s7">=&quot;pessoa_id&quot;</span><span class="s5">&gt;</span><span class="s4">ID da Pessoa:</span><span class="s5">&lt;/label&gt;</span>
+              <span class="s5">&lt;input </span><span class="s6">type</span><span class="s7">=&quot;number&quot; </span><span class="s6">class</span><span class="s7">=&quot;form-control&quot; </span><span class="s6">id</span><span class="s7">=&quot;pessoa_id&quot; </span><span class="s6">name</span><span class="s7">=&quot;pessoa_id&quot; </span><span class="s6">required</span><span class="s5">&gt;</span>
+          <span class="s5">&lt;/div&gt;</span>
+          <span class="s5">&lt;div </span><span class="s6">class</span><span class="s7">=&quot;form-group&quot;</span><span class="s5">&gt;</span>
+              <span class="s5">&lt;label </span><span class="s6">for</span><span class="s7">=&quot;curso&quot;</span><span class="s5">&gt;</span><span class="s4">Curso:</span><span class="s5">&lt;/label&gt;</span>
+              <span class="s5">&lt;input </span><span class="s6">type</span><span class="s7">=&quot;text&quot; </span><span class="s6">class</span><span class="s7">=&quot;form-control&quot; </span><span class="s6">id</span><span class="s7">=&quot;curso&quot; </span><span class="s6">name</span><span class="s7">=&quot;curso&quot; </span><span class="s6">required</span><span class="s5">&gt;</span>
+          <span class="s5">&lt;/div&gt;</span>
+          <span class="s5">&lt;div </span><span class="s6">class</span><span class="s7">=&quot;form-group&quot;</span><span class="s5">&gt;</span>
+              <span class="s5">&lt;label </span><span class="s6">for</span><span class="s7">=&quot;instituicao&quot;</span><span class="s5">&gt;</span><span class="s4">Instituição:</span><span class="s5">&lt;/label&gt;</span>
+              <span class="s5">&lt;input </span><span class="s6">type</span><span class="s7">=&quot;text&quot; </span><span class="s6">class</span><span class="s7">=&quot;form-control&quot; </span><span class="s6">id</span><span class="s7">=&quot;instituicao&quot; </span><span class="s6">name</span><span class="s7">=&quot;instituicao&quot; </span><span class="s6">required</span><span class="s5">&gt;</span>
+          <span class="s5">&lt;/div&gt;</span>
+          <span class="s5">&lt;div </span><span class="s6">class</span><span class="s7">=&quot;form-group&quot;</span><span class="s5">&gt;</span>
+              <span class="s5">&lt;label </span><span class="s6">for</span><span class="s7">=&quot;data_conclusao&quot;</span><span class="s5">&gt;</span><span class="s4">Data de Conclusão:</span><span class="s5">&lt;/label&gt;</span>
+              <span class="s5">&lt;input </span><span class="s6">type</span><span class="s7">=&quot;date&quot; </span><span class="s6">class</span><span class="s7">=&quot;form-control&quot; </span><span class="s6">id</span><span class="s7">=&quot;data_conclusao&quot; </span><span class="s6">name</span><span class="s7">=&quot;data_conclusao&quot; </span><span class="s6">required</span><span class="s5">&gt;</span>
+          <span class="s5">&lt;/div&gt;</span>
+          <span class="s5">&lt;button </span><span class="s6">type</span><span class="s7">=&quot;submit&quot; </span><span class="s6">class</span><span class="s7">=&quot;btn btn-primary&quot;</span><span class="s5">&gt;Cadastrar&lt;/button&gt;</span>
+      <span class="s5">&lt;/form&gt;</span>
+  <span class="s5">&lt;/div&gt;</span>
+<span class="s0">{% </span><span class="s2">endblock </span><span class="s0">%}</span></pre>
+</body>
+</html>

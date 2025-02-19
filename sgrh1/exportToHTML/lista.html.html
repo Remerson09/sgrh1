@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>lista.html</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #bcbec4;}
+.s1 { color: #bcbec4;}
+.s2 { color: #d5b778;}
+.s3 { color: #6aab73;}
+.s4 { color: #bcbec4;}
+.s5 { color: #d5b778;}
+.s6 { color: #bababa;}
+.s7 { color: #6aab73;}
+.s8 { color: #2aacb8;}
+.s9 { color: #56a8f5;}
+.s10 { color: #cf8e6d;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+lista.html</font>
+</center></td></tr></table>
+<pre><span class="s0">{% </span><span class="s2">extends </span><span class="s3">'base.html' </span><span class="s0">%}</span>
+<span class="s0">{% </span><span class="s2">block </span><span class="s0">content %}</span>
+  <span class="s5">&lt;div </span><span class="s6">class</span><span class="s7">=&quot;container&quot;</span><span class="s5">&gt;</span>
+      <span class="s5">&lt;div </span><span class="s6">class</span><span class="s7">=&quot;page-header&quot;</span><span class="s5">&gt;</span>
+         <span class="s5">&lt;h1&gt;</span><span class="s1">{{ </span><span class="s0">titulo </span><span class="s1">}}</span><span class="s5">&lt;/h1&gt;</span>
+      <span class="s5">&lt;/div&gt;</span>
+      <span class="s5">&lt;table </span><span class="s6">style</span><span class="s7">=&quot;</span><span class="s6">width</span><span class="s4">: </span><span class="s8">100</span><span class="s4">%; </span><span class="s6">border-collapse</span><span class="s4">: </span><span class="s7">collapse</span><span class="s4">; </span><span class="s6">font-family</span><span class="s4">: </span><span class="s5">Arial</span><span class="s4">, </span><span class="s7">sans-serif</span><span class="s4">;</span><span class="s7">&quot;</span><span class="s5">&gt;</span>
+    <span class="s5">&lt;thead&gt;</span>
+        <span class="s5">&lt;tr </span><span class="s6">style</span><span class="s7">=&quot;</span><span class="s6">background-color</span><span class="s4">: </span><span class="s9">#f2f2f2</span><span class="s4">;</span><span class="s7">&quot;</span><span class="s5">&gt;</span>
+            <span class="s5">&lt;th&gt;</span><span class="s4">Nome</span><span class="s5">&lt;/th&gt;</span>
+            <span class="s5">&lt;th&gt;</span><span class="s4">CPF</span><span class="s5">&lt;/th&gt;</span>
+            <span class="s5">&lt;th&gt;</span><span class="s4">Endereço</span><span class="s5">&lt;/th&gt;</span>
+            <span class="s5">&lt;th&gt;</span><span class="s4">Profissão</span><span class="s5">&lt;/th&gt;</span>
+        <span class="s5">&lt;/tr&gt;</span>
+    <span class="s5">&lt;/thead&gt;</span>
+    <span class="s5">&lt;tbody&gt;</span>
+        <span class="s0">{% </span><span class="s2">for </span><span class="s0">pessoa </span><span class="s10">in </span><span class="s0">pessoas %}</span>
+        <span class="s5">&lt;tr&gt;</span>
+            <span class="s5">&lt;td&gt;</span><span class="s1">{{ </span><span class="s0">pessoa</span><span class="s1">.</span><span class="s0">nome </span><span class="s1">}}</span><span class="s5">&lt;/td&gt;</span>
+            <span class="s5">&lt;td&gt;</span><span class="s1">{{ </span><span class="s0">pessoa</span><span class="s1">.</span><span class="s0">cpf </span><span class="s1">}}</span><span class="s5">&lt;/td&gt;</span>
+            <span class="s5">&lt;td&gt;</span><span class="s1">{{ </span><span class="s0">pessoa</span><span class="s1">.</span><span class="s0">endereco </span><span class="s1">}}</span><span class="s5">&lt;/td&gt;</span>
+            <span class="s5">&lt;td&gt;</span><span class="s1">{{ </span><span class="s0">pessoa</span><span class="s1">.</span><span class="s0">profissao </span><span class="s1">}}</span><span class="s5">&lt;/td&gt;</span>
+        <span class="s5">&lt;/tr&gt;</span>
+            <span class="s0">{% </span><span class="s2">endfor </span><span class="s0">%}</span>
+    <span class="s5">&lt;/tbody&gt;</span>
+<span class="s5">&lt;/table&gt;</span>
+
+  <span class="s5">&lt;/div&gt;</span>
+<span class="s0">{% </span><span class="s2">endblock </span><span class="s0">%}</span></pre>
+</body>
+</html>

@@ -1,0 +1,108 @@
+from cgitb import html
+<html>
+<head>
+<title>app.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cf8e6d;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #6aab73;}
+.s4 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+app.py</font>
+</center></td></tr></table>
+<pre><span class="s0">from </span><span class="s1">flask </span><span class="s0">import </span><span class="s1">Flask</span><span class="s2">, </span><span class="s1">render_template</span><span class="s2">, </span><span class="s1">request</span>
+
+<span class="s0">class </span><span class="s1">Profissao</span><span class="s2">:</span>
+    <span class="s0">def </span><span class="s1">__init__</span><span class="s2">(</span><span class="s1">self</span><span class="s2">, </span><span class="s1">cod_profissao</span><span class="s2">, </span><span class="s1">nome</span><span class="s2">, </span><span class="s1">status</span><span class="s2">):</span>
+        <span class="s1">self</span><span class="s2">.</span><span class="s1">cod_profissao </span><span class="s2">= </span><span class="s1">cod_profissao</span>
+        <span class="s1">self</span><span class="s2">.</span><span class="s1">nome </span><span class="s2">= </span><span class="s1">nome</span>
+        <span class="s1">self</span><span class="s2">.</span><span class="s1">status </span><span class="s2">= </span><span class="s1">status</span>
+
+<span class="s0">class </span><span class="s1">Pessoa</span><span class="s2">:</span>
+    <span class="s0">def </span><span class="s1">__init__</span><span class="s2">(</span><span class="s1">self</span><span class="s2">, </span><span class="s1">nome</span><span class="s2">, </span><span class="s1">cpf</span><span class="s2">, </span><span class="s1">endereco</span><span class="s2">, </span><span class="s1">profissao</span><span class="s2">, </span><span class="s1">senha</span><span class="s2">):</span>
+        <span class="s1">self</span><span class="s2">.</span><span class="s1">nome </span><span class="s2">= </span><span class="s1">nome</span>
+        <span class="s1">self</span><span class="s2">.</span><span class="s1">cpf </span><span class="s2">= </span><span class="s1">cpf</span>
+        <span class="s1">self</span><span class="s2">.</span><span class="s1">endereco </span><span class="s2">= </span><span class="s1">endereco</span>
+        <span class="s1">self</span><span class="s2">.</span><span class="s1">profissao </span><span class="s2">= </span><span class="s1">profissao</span>
+        <span class="s1">self</span><span class="s2">.</span><span class="s1">senha </span><span class="s2">= </span><span class="s1">senha</span>
+
+<span class="s1">pessoa0 </span><span class="s2">= </span><span class="s1">Pessoa</span><span class="s2">(</span><span class="s3">&quot;Alice Silva&quot;</span><span class="s2">, </span><span class="s3">&quot;123.456.789-00&quot;</span><span class="s2">, </span><span class="s3">&quot;Rua das Flores, 123&quot;</span><span class="s2">, </span><span class="s3">&quot;Engenheira&quot;</span><span class="s2">, </span><span class="s3">&quot;123&quot;</span><span class="s2">)</span>
+<span class="s1">pessoa1 </span><span class="s2">= </span><span class="s1">Pessoa</span><span class="s2">(</span><span class="s3">&quot;Bruno Santos&quot;</span><span class="s2">, </span><span class="s3">&quot;987.654.321-00&quot;</span><span class="s2">, </span><span class="s3">&quot;Avenida Brasil, 456&quot;</span><span class="s2">, </span><span class="s3">&quot;Médico&quot;</span><span class="s2">, </span><span class="s3">&quot;123&quot;</span><span class="s2">)</span>
+<span class="s1">pessoa2 </span><span class="s2">= </span><span class="s1">Pessoa</span><span class="s2">(</span><span class="s3">&quot;Carla Oliveira&quot;</span><span class="s2">, </span><span class="s3">&quot;234.567.890-11&quot;</span><span class="s2">, </span><span class="s3">&quot;Travessa do Sol, 789&quot;</span><span class="s2">, </span><span class="s3">&quot;Professora&quot;</span><span class="s2">, </span><span class="s3">&quot;123&quot;</span><span class="s2">)</span>
+<span class="s1">pessoa3 </span><span class="s2">= </span><span class="s1">Pessoa</span><span class="s2">(</span><span class="s3">&quot;Daniela Costa&quot;</span><span class="s2">, </span><span class="s3">&quot;345.678.901-22&quot;</span><span class="s2">, </span><span class="s3">&quot;Rua da Paz, 101&quot;</span><span class="s2">, </span><span class="s3">&quot;Arquiteta&quot;</span><span class="s2">, </span><span class="s3">&quot;123&quot;</span><span class="s2">)</span>
+<span class="s1">lista </span><span class="s2">= [</span><span class="s1">pessoa0</span><span class="s2">, </span><span class="s1">pessoa1</span><span class="s2">, </span><span class="s1">pessoa2</span><span class="s2">, </span><span class="s1">pessoa3</span><span class="s2">]</span>
+<span class="s1">profissao0 </span><span class="s2">= </span><span class="s1">Profissao</span><span class="s2">(</span><span class="s4">0</span><span class="s2">, </span><span class="s3">&quot;Engenheiro&quot;</span><span class="s2">, </span><span class="s3">&quot;Disponível&quot;</span><span class="s2">)</span>
+<span class="s1">listap </span><span class="s2">= [</span><span class="s1">profissao0</span><span class="s2">]</span>
+
+<span class="s1">app </span><span class="s2">= </span><span class="s1">Flask</span><span class="s2">(</span><span class="s1">__name__</span><span class="s2">)</span>
+
+<span class="s2">@</span><span class="s1">app</span><span class="s2">.</span><span class="s1">route</span><span class="s2">(</span><span class="s3">'/index'</span><span class="s2">)</span>
+<span class="s0">def </span><span class="s1">ola</span><span class="s2">():</span>
+    <span class="s0">return </span><span class="s1">render_template</span><span class="s2">(</span><span class="s3">'menu.html'</span><span class="s2">, </span><span class="s1">titulo</span><span class="s2">=</span><span class="s3">&quot;Sistemas de Gestão de Recursos Humanos&quot;</span><span class="s2">)</span>
+
+<span class="s2">@</span><span class="s1">app</span><span class="s2">.</span><span class="s1">route</span><span class="s2">(</span><span class="s3">'/form'</span><span class="s2">, </span><span class="s1">methods</span><span class="s2">=[</span><span class="s3">'GET'</span><span class="s2">, </span><span class="s3">'POST'</span><span class="s2">])</span>
+<span class="s0">def </span><span class="s1">form_pessoa</span><span class="s2">():</span>
+    <span class="s0">if </span><span class="s1">request</span><span class="s2">.</span><span class="s1">method </span><span class="s2">== </span><span class="s3">'POST'</span><span class="s2">:</span>
+        <span class="s1">nome </span><span class="s2">= </span><span class="s1">request</span><span class="s2">.</span><span class="s1">form</span><span class="s2">[</span><span class="s3">'nome'</span><span class="s2">]</span>
+        <span class="s1">cpf </span><span class="s2">= </span><span class="s1">request</span><span class="s2">.</span><span class="s1">form</span><span class="s2">[</span><span class="s3">'cpf'</span><span class="s2">]</span>
+        <span class="s1">endereco </span><span class="s2">= </span><span class="s1">request</span><span class="s2">.</span><span class="s1">form</span><span class="s2">[</span><span class="s3">'endereco'</span><span class="s2">]</span>
+        <span class="s1">profissao </span><span class="s2">= </span><span class="s1">request</span><span class="s2">.</span><span class="s1">form</span><span class="s2">[</span><span class="s3">'profissao'</span><span class="s2">]</span>
+        <span class="s0">return </span><span class="s1">render_template</span><span class="s2">(</span><span class="s3">'index.html'</span><span class="s2">, </span><span class="s1">titulo</span><span class="s2">=</span><span class="s3">'Dados Recebidos'</span><span class="s2">, </span><span class="s1">nome</span><span class="s2">=</span><span class="s1">nome</span><span class="s2">, </span><span class="s1">cpf</span><span class="s2">=</span><span class="s1">cpf</span><span class="s2">, </span><span class="s1">endereco</span><span class="s2">=</span><span class="s1">endereco</span><span class="s2">, </span><span class="s1">profissao</span><span class="s2">=</span><span class="s1">profissao</span><span class="s2">)</span>
+
+    <span class="s0">return </span><span class="s1">render_template</span><span class="s2">(</span><span class="s3">'form.html'</span><span class="s2">, </span><span class="s1">titulo</span><span class="s2">=</span><span class="s3">&quot;Sistemas de Gestão de Recursos Humanos&quot;</span><span class="s2">)</span>
+
+<span class="s2">@</span><span class="s1">app</span><span class="s2">.</span><span class="s1">route</span><span class="s2">(</span><span class="s3">'/form_profissao'</span><span class="s2">, </span><span class="s1">methods</span><span class="s2">=[</span><span class="s3">'GET'</span><span class="s2">, </span><span class="s3">'POST'</span><span class="s2">])</span>
+<span class="s0">def </span><span class="s1">form_profissao</span><span class="s2">():</span>
+    <span class="s0">if </span><span class="s1">request</span><span class="s2">.</span><span class="s1">method </span><span class="s2">== </span><span class="s3">'POST'</span><span class="s2">:</span>
+        <span class="s1">nome </span><span class="s2">= </span><span class="s1">request</span><span class="s2">.</span><span class="s1">form</span><span class="s2">[</span><span class="s3">'nome'</span><span class="s2">]</span>
+        <span class="s1">status </span><span class="s2">= </span><span class="s1">request</span><span class="s2">.</span><span class="s1">form</span><span class="s2">[</span><span class="s3">'status'</span><span class="s2">]</span>
+        <span class="s0">return </span><span class="s1">render_template</span><span class="s2">(</span><span class="s3">'index.html'</span><span class="s2">, </span><span class="s1">titulo</span><span class="s2">=</span><span class="s3">'Dados Recebidos'</span><span class="s2">, </span><span class="s1">nome</span><span class="s2">=</span><span class="s1">nome</span><span class="s2">, </span><span class="s1">status</span><span class="s2">=</span><span class="s1">status</span><span class="s2">)</span>
+
+    <span class="s0">return </span><span class="s1">render_template</span><span class="s2">(</span><span class="s3">'form_profissao.html'</span><span class="s2">, </span><span class="s1">titulo</span><span class="s2">=</span><span class="s3">&quot;Sistemas de Gestão de Recursos Humanos&quot;</span><span class="s2">)</span>
+
+<span class="s2">@</span><span class="s1">app</span><span class="s2">.</span><span class="s1">route</span><span class="s2">(</span><span class="s3">'/criar'</span><span class="s2">, </span><span class="s1">methods</span><span class="s2">=[</span><span class="s3">'GET'</span><span class="s2">, </span><span class="s3">'POST'</span><span class="s2">])</span>
+<span class="s0">def </span><span class="s1">criar</span><span class="s2">():</span>
+    <span class="s0">if </span><span class="s1">request</span><span class="s2">.</span><span class="s1">method </span><span class="s2">== </span><span class="s3">'POST'</span><span class="s2">:</span>
+        <span class="s1">nome </span><span class="s2">= </span><span class="s1">request</span><span class="s2">.</span><span class="s1">form</span><span class="s2">[</span><span class="s3">'nome'</span><span class="s2">]</span>
+        <span class="s1">cpf </span><span class="s2">= </span><span class="s1">request</span><span class="s2">.</span><span class="s1">form</span><span class="s2">[</span><span class="s3">'cpf'</span><span class="s2">]</span>
+        <span class="s1">endereco </span><span class="s2">= </span><span class="s1">request</span><span class="s2">.</span><span class="s1">form</span><span class="s2">[</span><span class="s3">'endereco'</span><span class="s2">]</span>
+        <span class="s1">profissao </span><span class="s2">= </span><span class="s1">request</span><span class="s2">.</span><span class="s1">form</span><span class="s2">[</span><span class="s3">'profissao'</span><span class="s2">]</span>
+        <span class="s1">pessoaR </span><span class="s2">= </span><span class="s1">Pessoa</span><span class="s2">(</span><span class="s1">nome</span><span class="s2">, </span><span class="s1">cpf</span><span class="s2">, </span><span class="s1">endereco</span><span class="s2">, </span><span class="s1">profissao</span><span class="s2">)</span>
+        <span class="s1">lista</span><span class="s2">.</span><span class="s1">append</span><span class="s2">(</span><span class="s1">pessoaR</span><span class="s2">)</span>
+        <span class="s0">return </span><span class="s1">render_template</span><span class="s2">(</span><span class="s3">'lista.html'</span><span class="s2">, </span><span class="s1">titulo</span><span class="s2">=</span><span class="s3">&quot;Sistemas de Gestão de Recursos Humanos&quot;</span><span class="s2">, </span><span class="s1">pessoas</span><span class="s2">=</span><span class="s1">lista</span><span class="s2">)</span>
+
+<span class="s2">@</span><span class="s1">app</span><span class="s2">.</span><span class="s1">route</span><span class="s2">(</span><span class="s3">'/criar_profissao'</span><span class="s2">, </span><span class="s1">methods</span><span class="s2">=[</span><span class="s3">'GET'</span><span class="s2">, </span><span class="s3">'POST'</span><span class="s2">])</span>
+<span class="s0">def </span><span class="s1">criar_profissao</span><span class="s2">():</span>
+    <span class="s0">if </span><span class="s1">request</span><span class="s2">.</span><span class="s1">method </span><span class="s2">== </span><span class="s3">'POST'</span><span class="s2">:</span>
+        <span class="s1">nome </span><span class="s2">= </span><span class="s1">request</span><span class="s2">.</span><span class="s1">form</span><span class="s2">[</span><span class="s3">'nome'</span><span class="s2">]</span>
+        <span class="s1">status </span><span class="s2">= </span><span class="s1">request</span><span class="s2">.</span><span class="s1">form</span><span class="s2">[</span><span class="s3">'status'</span><span class="s2">]</span>
+        <span class="s1">profissaoR </span><span class="s2">= </span><span class="s1">Profissao</span><span class="s2">(</span><span class="s1">len</span><span class="s2">(</span><span class="s1">listap</span><span class="s2">),</span><span class="s1">nome</span><span class="s2">, </span><span class="s1">status</span><span class="s2">)</span>
+        <span class="s1">listap</span><span class="s2">.</span><span class="s1">append</span><span class="s2">(</span><span class="s1">profissaoR</span><span class="s2">)</span>
+        <span class="s0">return </span><span class="s1">render_template</span><span class="s2">(</span><span class="s3">'saida_profissao.html'</span><span class="s2">, </span><span class="s1">titulo</span><span class="s2">=</span><span class="s3">&quot;Sistemas de Gestão de Recursos Humanos&quot;</span><span class="s2">, </span><span class="s1">profissaos</span><span class="s2">=</span><span class="s1">listap</span><span class="s2">)</span>
+
+<span class="s0">if </span><span class="s1">__name__ </span><span class="s2">== </span><span class="s3">'__main__'</span><span class="s2">:</span>
+    <span class="s1">app</span><span class="s2">.</span><span class="s1">run</span><span class="s2">(</span><span class="s1">debug</span><span class="s2">=</span><span class="s0">True</span><span class="s2">)</span>
+
+<span class="s2">@</span><span class="s1">app</span><span class="s2">.</span><span class="s1">route</span><span class="s2">(</span><span class="s3">'/login'</span><span class="s2">)</span>
+<span class="s0">def </span><span class="s1">login</span><span class="s2">():</span>
+    <span class="s0">return </span><span class="s1">render_template</span><span class="s2">(</span><span class="s3">&quot;login.html&quot;</span><span class="s2">, </span><span class="s1">titulo</span><span class="s2">=</span><span class="s3">&quot;Sistemas de Gestão de Recursos Humanos&quot;</span><span class="s2">)</span>
+
+<span class="s2">@</span><span class="s1">app</span><span class="s2">.</span><span class="s1">route</span><span class="s2">(</span><span class="s3">'/autenticar'</span><span class="s2">, </span><span class="s1">methods</span><span class="s2">=[</span><span class="s3">'GET'</span><span class="s2">, </span><span class="s3">'POST'</span><span class="s2">])</span>
+<span class="s0">def </span><span class="s1">autenticar</span><span class="s2">():</span>
+    <span class="s0">if </span><span class="s1">request</span><span class="s2">.</span><span class="s1">method </span><span class="s2">== </span><span class="s3">'POST'</span><span class="s2">:</span>
+        <span class="s1">user </span><span class="s2">= </span><span class="s1">request</span><span class="s2">.</span><span class="s1">form</span><span class="s2">[</span><span class="s3">'user'</span><span class="s2">]</span>
+        <span class="s0">for </span><span class="s1">pessoa </span><span class="s0">in </span><span class="s1">lista</span><span class="s2">:</span>
+            <span class="s0">if </span><span class="s1">pessoa</span><span class="s2">.</span><span class="s1">nome </span><span class="s2">== </span><span class="s1">user </span><span class="s0">and </span><span class="s1">pessoa</span><span class="s2">.</span><span class="s1">senha </span><span class="s2">== </span><span class="s1">request</span><span class="s2">.</span><span class="s1">form</span><span class="s2">[</span><span class="s3">'password'</span><span class="s2">]:</span>
+                <span class="s0">return </span><span class="s1">render_template</span><span class="s2">(</span><span class="s3">'lista.html'</span><span class="s2">, </span><span class="s1">titulo</span><span class="s2">=</span><span class="s3">&quot;Sistemas de Gestão de Recursos Humanos&quot;</span><span class="s2">, </span><span class="s1">pessoas</span><span class="s2">=</span><span class="s1">lista</span><span class="s2">)</span>
+            <span class="s0">else</span><span class="s2">:</span>
+                <span class="s0">return </span><span class="s1">render_template</span><span class="s2">(</span><span class="s3">'login.html'</span><span class="s2">, </span><span class="s1">titulo</span><span class="s2">=</span><span class="s3">&quot;Sistemas de Gestão de Recursos Humanos&quot;</span><span class="s2">)</span>
+</pre>
+</body>
+</html>

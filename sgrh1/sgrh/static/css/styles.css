@@ -1,0 +1,21 @@
+body {
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.page-header {
+    margin-bottom: 20px;
+}
+.btn btn-danger btn-lg mb-3{
+    display: block;
+    margin: 0 auto;
+}
+
+a{
+    text-align: center;
+}

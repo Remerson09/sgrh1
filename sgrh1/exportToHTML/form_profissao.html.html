@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>form_profissao.html</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #bcbec4;}
+.s1 { color: #bcbec4;}
+.s2 { color: #d5b778;}
+.s3 { color: #6aab73;}
+.s4 { color: #bcbec4;}
+.s5 { color: #d5b778;}
+.s6 { color: #bababa;}
+.s7 { color: #6aab73;}
+</style>
+</head>
+<body bgcolor="#1e1f22">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+form_profissao.html</font>
+</center></td></tr></table>
+<pre><span class="s0">{% </span><span class="s2">extends </span><span class="s3">'base.html' </span><span class="s0">%}</span>
+<span class="s0">{% </span><span class="s2">block </span><span class="s0">content %}</span>
+    <span class="s5">&lt;div </span><span class="s6">class</span><span class="s7">=&quot;container&quot;</span><span class="s5">&gt;</span>
+      <span class="s5">&lt;div </span><span class="s6">class</span><span class="s7">=&quot;page-header&quot;</span><span class="s5">&gt;</span>
+          <span class="s5">&lt;h1&gt;</span><span class="s1">{{ </span><span class="s0">titulo </span><span class="s1">}}</span><span class="s5">&lt;/h1&gt;</span>
+      <span class="s5">&lt;/div&gt;</span>
+      <span class="s5">&lt;form </span><span class="s6">action</span><span class="s7">=&quot;criar_profissao&quot; </span><span class="s6">method</span><span class="s7">=&quot;POST&quot;</span><span class="s5">&gt;</span>
+        <span class="s5">&lt;fieldset&gt;</span>
+          <span class="s5">&lt;div </span><span class="s6">class</span><span class="s7">=&quot;form-group&quot;</span><span class="s5">&gt;</span>
+            <span class="s5">&lt;label </span><span class="s6">for</span><span class="s7">=&quot;nome&quot;</span><span class="s5">&gt;</span><span class="s4">Nome</span><span class="s5">&lt;/label&gt;</span>
+            <span class="s5">&lt;input </span><span class="s6">type</span><span class="s7">=&quot;text&quot; </span><span class="s6">id</span><span class="s7">=&quot;nome&quot; </span><span class="s6">name</span><span class="s7">=&quot;nome&quot; </span><span class="s6">class</span><span class="s7">=&quot;form-control&quot;</span><span class="s5">&gt;</span>
+          <span class="s5">&lt;/div&gt;</span>
+            <span class="s5">&lt;div </span><span class="s6">class</span><span class="s7">=&quot;form-group&quot;</span><span class="s5">&gt;</span>
+            <span class="s5">&lt;label </span><span class="s6">for</span><span class="s7">=&quot;status&quot;</span><span class="s5">&gt;</span><span class="s4">Status</span><span class="s5">&lt;/label&gt;</span>
+            <span class="s5">&lt;input </span><span class="s6">type</span><span class="s7">=&quot;text&quot; </span><span class="s6">id</span><span class="s7">=&quot;status&quot; </span><span class="s6">name</span><span class="s7">=&quot;status&quot; </span><span class="s6">class</span><span class="s7">=&quot;form-control&quot;</span><span class="s5">&gt;</span>
+          <span class="s5">&lt;/div&gt;</span>
+          <span class="s5">&lt;button </span><span class="s6">type</span><span class="s7">=&quot;submit&quot; </span><span class="s6">class</span><span class="s7">=&quot;btn btn-primary btn-salvar&quot;</span><span class="s5">&gt;</span><span class="s4">Salvar</span><span class="s5">&lt;/button&gt;</span>
+        <span class="s5">&lt;/fieldset&gt;</span>
+      <span class="s5">&lt;/form&gt;</span>
+    <span class="s5">&lt;/div&gt;</span>
+<span class="s0">{% </span><span class="s2">endblock </span><span class="s0">%}</span></pre>
+</body>
+</html>

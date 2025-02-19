@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="container">
+      <div class="page-header">
+          <h1>Menu de Formulários</h1>
+      </div>
+      <div class="list-group">
+          <a href="{{ url_for('form_pessoa') }}" class="list-group-item list-group-item-action">
+              Formulário de Pessoas
+          </a>
+          <a href="{{ url_for('form_profissao') }}" class="list-group-item list-group-item-action">
+              Formulário de Profissões
+          </a>
+          <a href="{{ url_for('form_capacitacao') }}" class="list-group-item list-group-item-action">
+              Formulário de Capacitação
+          </a>
+          <a href="{{ url_for('form_folha_pagamento') }}" class="list-group-item list-group-item-action">
+              Formulário de Folha de Pagamento
+          </a>
+      </div>
+  </div>
+{% endblock %}

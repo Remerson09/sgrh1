@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="container">
+      <div class="page-header">
+         <h1>Sistemas de Gestão de Recursos Humanos</h1>
+      </div>
+      <table style="width: 100%; border-collapse: collapse; font-family: Arial, sans-serif;">
+    <thead>
+        <tr style="background-color: #f2f2f2;">
+            <th>Nome</th>
+            <th>Endereço</th>
+            <th>Profissão</th>
+            <th>Deletar</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for pessoa in pessoas %}
+        <tr>
+            <td>{{ pessoa.nome }}</td>
+            <td>{{ pessoa.endereco }}</td>
+            <td>{{ pessoa.profissao }}</td>
+            <td>
+                <form action="{{ url_for('rm_pessoa', id=pessoa.id) }}" method="POST" style="display: inline;">
+                    <button type="submit" class="btn btn-danger btn-lg mb-3 me-3">Deletar</button>
+                </form>
+            </td>
+        </tr>
+            {% endfor %}
+    </tbody>
+</table>
+
+  </div>
+{% endblock %}
